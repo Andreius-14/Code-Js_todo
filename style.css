@@ -1,0 +1,99 @@
+html {
+  height: 100%;
+}
+
+body {
+  background: #525252; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #3d72b4,
+    #525252
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #3d72b4,
+    #525252
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.index, .todo  {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background-color: rgb(47, 79, 79);
+  
+}
+
+
+.index {
+  height: 90%;
+  width: 500px;
+  max-width: 90%;
+
+  background-color: hsla(0, 0%, 100%, 0.658);
+  /*[Centrarse Asi mismo]*/
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  /*[Centrar Hijos]*/
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  box-shadow: 0px 13px 7px 5px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1);
+}
+
+.todo {
+  flex: 1 1 auto;
+
+  margin: 2px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  
+  overflow: auto;
+  scrollbar-width: none;
+}
+
+.contenedorInputs{
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  padding: 5px;
+  margin-top: 10px;
+  overflow-y: auto;
+}
+.contenedorInputs::-webkit-scrollbar {
+  display: none;
+}
+
+/*[Tareas Insertada]*/
+.contenedorInputs  div{
+  display: flex;
+  align-items: center;
+  border-radius: 0px 15px 0px 15px;
+  background-color: rgba(10, 39, 39, 0.315);
+
+  color: black  ;
+  transition: all 0.1s linear 0.01s;
+  font-size: 18px;
+  opacity: 1;
+}
+.contenedorInputs  div:hover{
+  font-size: 24px;
+  color: rgb(66, 66, 66);
+  font-weight: bold;
+  text-decoration: line-through;
+  background-color: #1a1515da;
+
+}
+
+/*[Detalles]*/
+.extra--boton{
+  margin: 15px;
+    width: 25px;
+  height: 25px;
+}
+
