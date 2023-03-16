@@ -1,4 +1,4 @@
-import { readFile, writeFile } from 'fs';
+import fs from 'fs';
 
 
 const tarea = document.querySelector(".tareas");
@@ -58,9 +58,9 @@ function objetoDatos (tarea) {
 
 function AgregaContenidoJson(nombreArchivo,nuevoContenido){
 
-  readFile(nombreArchivo,'utf8',(e,data)=>{
+  fs.readFile(nombreArchivo,'utf8',(e,data)=>{
     if (e) {
-      writeFile(nombreArchivo,"{}");
+      fs.writeFile(nombreArchivo,"{}");
       AgregaContenidoJson(nombreArchivo,nuevoContenido);
       return false;
     }
@@ -69,7 +69,7 @@ function AgregaContenidoJson(nombreArchivo,nuevoContenido){
     dataArchivoObjeto.push(nuevoContenido);
     const dataArchivoJson = JSON.stringify(dataArchivoObjeto);
 
-    writeFile(nombreArchivo,dataArchivoJson,'utf8', (e)=>{ e? console.log(e): console.log(`Guardado con Exito: ${nuevoContenido.tarea}`);});
+    fs.writeFile(nombreArchivo,dataArchivoJson,'utf8', (e)=>{ e? console.log(e): console.log(`Guardado con Exito: ${nuevoContenido.tarea}`);});
   })
 
 }
