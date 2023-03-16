@@ -70,23 +70,22 @@ body {
 }
 
 /*[Tareas Insertada]*/
-.contenedorInputs  div{
+.contenedorInputs > div{
   display: flex;
   align-items: center;
   border-radius: 0px 15px 0px 15px;
   background-color: rgba(10, 39, 39, 0.315);
 
-  color: black  ;
+  color: rgb(0, 0, 0) ;
   transition: all 0.1s linear 0.01s;
   font-size: 18px;
-  opacity: 1;
 }
-.contenedorInputs  div:hover{
+.contenedorInputs > div:hover , .contenedorInputs > div.terminado{
   font-size: 24px;
-  color: rgb(66, 66, 66);
+  color: grey;
   font-weight: bold;
   text-decoration: line-through;
-  background-color: #1a1515da;
+  background-color: #161515a8;
 
 }
 

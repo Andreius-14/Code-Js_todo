@@ -1,10 +1,27 @@
-import fs from 'fs';
 
 
 const tarea = document.querySelector(".tareas");
 const cajaInput = document.querySelector(".contenedorInputs");
+const checkboxes = document.getElementsByClassName('extra--boton');
 
 const etiqueta = document.createElement.bind(document);
+
+tarea.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
+    casilla();
+  }
+});
+
+setInterval(() => {
+  let valor = Array.from(checkboxes).every(element => {
+    return element.checked;
+  });
+  if (valor) {
+    Array.from(checkboxes).forEach(element => {
+      element.parentNode.remove();
+    });
+  }
+}, 2000);
 
 
 function casilla() {
@@ -16,16 +33,22 @@ function casilla() {
     checkbox.type = "checkbox";
     checkbox.classList.add('extra--boton');
 
-    //Conetido
+    //Contenido
     const contenido = etiqueta("label");
-    contenido.classList.add('extra--label');
+    contenido.classList.add('extra--label');  
     contenido.textContent = `🌱 ${texto}`;
 
     const cajaTarea = etiqueta("div");
     cajaTarea.appendChild(checkbox);
     cajaTarea.appendChild(contenido); 
 
-    objetoDatos(contenido.textContent)
+    //🌱 Eventos
+    cajaTarea.addEventListener('click',()=>{
+      checkbox.click();
+      // Abreviado a -> classList - add - remove
+      cajaTarea.classList.toggle('terminado', checkbox.checked);
+    });  
+
     inserta(cajaTarea);
   }
 
@@ -42,43 +65,3 @@ const hijos = document.querySelectorAll(".contenedorInputs > *");
 
   tarea.value = ""
 }
-
-
-// 🟥🟥🟥🟥🟥🟥
-
-function objetoDatos (tarea) {
-
-  const fecha = new Date();
-  const objeto = {
-    tarea : `${tarea}`,
-    fechaCreada:`${fecha}`,
-  };
-  AgregaContenidoJson('datos.json',objeto);
-}
-
-function AgregaContenidoJson(nombreArchivo,nuevoContenido){
-
-  fs.readFile(nombreArchivo,'utf8',(e,data)=>{
-    if (e) {
-      fs.writeFile(nombreArchivo,"{}");
-      AgregaContenidoJson(nombreArchivo,nuevoContenido);
-      return false;
-    }
-
-    const dataArchivoObjeto = JSON.parse(data);
-    dataArchivoObjeto.push(nuevoContenido);
-    const dataArchivoJson = JSON.stringify(dataArchivoObjeto);
-
-    fs.writeFile(nombreArchivo,dataArchivoJson,'utf8', (e)=>{ e? console.log(e): console.log(`Guardado con Exito: ${nuevoContenido.tarea}`);});
-  })
-
-}
-
-
-// const now = new Date();
-  
-// if (now - yesterday >= 86400000) {
-//   console.log('Ha pasado un día completo');
-// } else {
-//   console.log('No ha pasado un día completo aún');
-// }
