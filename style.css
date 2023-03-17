@@ -3,28 +3,17 @@ html {
 }
 
 body {
-  background: #525252; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to right,
-    #3d72b4,
-    #525252
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to right,
-    #3d72b4,
-    #525252
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, #3d72b4, #525252);
 }
 
-.index, .todo  {
+.index,
+.todo {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border-radius: 10px;
   border: 1px solid rgba(255, 255, 255, 0.18);
   background-color: rgb(47, 79, 79);
-  
 }
-
 
 .index {
   height: 90%;
@@ -42,7 +31,10 @@ body {
   display: flex;
   justify-content: center;
   align-items: stretch;
-  box-shadow: 0px 13px 7px 5px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1),0px 10px 15px -3px rgba(0,0,0,0.1);
+  box-shadow: 0px 13px 7px 5px rgba(0, 0, 0, 0.1),
+    0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
 
 .todo {
@@ -52,12 +44,13 @@ body {
   padding: 20px;
   display: flex;
   flex-direction: column;
-  
+
   overflow: auto;
   scrollbar-width: none;
 }
 
-.contenedorInputs{
+/*💀💀💀 INSERTADO POR JAVASCRIPT */
+.contenedorInputs {
   display: flex;
   gap: 10px;
   flex-direction: column;
@@ -70,29 +63,29 @@ body {
 }
 
 /*[Tareas Insertada]*/
-.contenedorInputs > div{
+.contenedorInputs > div {
   display: flex;
   align-items: center;
   border-radius: 0px 15px 0px 15px;
   background-color: rgba(10, 39, 39, 0.315);
 
-  color: rgb(0, 0, 0) ;
+  color: rgb(0, 0, 0);
   transition: all 0.1s linear 0.01s;
   font-size: 18px;
 }
-.contenedorInputs > div:hover , .contenedorInputs > div.terminado{
+
+.contenedorInputs > div:hover,
+.contenedorInputs > div.terminado {
   font-size: 24px;
   color: grey;
   font-weight: bold;
   text-decoration: line-through;
   background-color: #161515a8;
-
 }
 
 /*[Detalles]*/
-.extra--boton{
+.extra--boton {
   margin: 15px;
-    width: 25px;
+  width: 25px;
   height: 25px;
 }
-
