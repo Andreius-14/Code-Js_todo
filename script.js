@@ -12,17 +12,6 @@ tarea.addEventListener("keydown", (event) => {
   }
 });
 
-setInterval(() => {
-  let valor = Array.from(checkboxes).every(element => {
-    return element.checked;
-  });
-  if (valor) {
-    Array.from(checkboxes).forEach(element => {
-      element.parentNode.remove();
-    });
-  }
-}, 2000);
-
 
 function casilla() {
   const texto = tarea.value.trim();
@@ -47,6 +36,7 @@ function casilla() {
       checkbox.click();
       // Abreviado a -> classList - add - remove
       cajaTarea.classList.toggle('terminado', checkbox.checked);
+      eliminarTodo();
     });  
 
     inserta(cajaTarea);
@@ -64,4 +54,16 @@ const hijos = document.querySelectorAll(".contenedorInputs > *");
   }
 
   tarea.value = ""
+}
+
+function eliminarTodo () {
+  // body
+  let valor = Array.from(checkboxes).every(element => {
+    return element.checked;
+  });
+  if (valor) {
+    Array.from(checkboxes).forEach(element => {
+      element.parentNode.remove();
+    });
+  }
 }
